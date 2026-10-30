@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090b12"><title>YEMEN SCRIPT VIP | SHARAF</title>
+<style>
+:root{--bg:#080a10;--panel:rgba(20,24,37,.78);--line:rgba(115,145,255,.2);--cyan:#35d9ff;--purple:#9b65ff;--red:#ff365e;--txt:#f3f5ff;--muted:#a6acc1}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% 5%,#21123c 0,transparent 35%),radial-gradient(ellipse at 90% 25%,#102b40 0,transparent 34%),var(--bg);color:var(--txt);font-family:system-ui,"Segoe UI",Tahoma,sans-serif;min-height:100vh}
+button,input,select{font:inherit}button{cursor:pointer;border:1px solid var(--line);border-radius:12px;padding:11px 15px;color:white;background:linear-gradient(120deg,#173b54,#30204e)}button:hover{filter:brightness(1.2)}input,select{width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);background:#0c101b;color:white;outline:none}label{display:block;color:var(--muted);font-size:13px;margin:9px 0 5px}
+.wrap{max-width:1100px;margin:auto;padding:18px}.glass{background:var(--panel);border:1px solid var(--line);box-shadow:0 12px 45px #0008,inset 0 1px #ffffff0b;backdrop-filter:blur(18px);border-radius:20px;padding:18px}
+header{display:flex;align-items:center;gap:13px;margin:8px 0 20px}.logo{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font-size:28px;font-weight:900;background:linear-gradient(135deg,#ff234e,#812fff,#20cfff);box-shadow:0 0 24px #8c4cff66}
+h1{font-size:clamp(19px,4vw,27px);margin:0;letter-spacing:.5px}header small,.muted{color:var(--muted)}.tag{margin-right:auto;border:1px solid #a56aff66;padding:7px 10px;border-radius:99px;color:#d7b8ff;font-size:12px}
+.hidden{display:none!important}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.full{grid-column:1/-1}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.row>*{flex:1}.section-title{margin:0 0 13px;font-size:18px}.notice{border-right:3px solid var(--cyan);padding:10px 12px;background:#10233188;border-radius:9px;color:#c9eefa;font-size:13px;line-height:1.8}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:14px}.card{border:1px solid var(--line);border-radius:15px;padding:13px;background:#0c111dcc}.card h3{margin:0 0 8px;font-size:15px}.values{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.values span{font-size:11px;color:var(--muted);background:#ffffff08;padding:7px;border-radius:7px}.values b{display:block;color:#eafaff;font-size:13px}.pill{font-size:11px;color:#9cecff}.actions{display:flex;gap:7px;margin-top:10px}.actions button{flex:1;padding:8px;font-size:12px}.primary{background:linear-gradient(110deg,#087b9b,#6235a8);border:0}.danger{background:#541a2b}.topbar{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:12px}.status{font-size:12px;color:#7fffd0}.tabs{display:flex;gap:8px;overflow:auto;margin:12px 0}.tabs button{white-space:nowrap}.tabs .active{border-color:var(--cyan);box-shadow:0 0 14px #35d9ff44}
+footer{text-align:center;color:#777f98;padding:25px 8px;font-size:12px}.modal{position:fixed;inset:0;background:#000b;display:grid;place-items:center;padding:15px;z-index:9}.modal .glass{width:min(460px,100%);max-height:90vh;overflow:auto}
+@media(max-width:600px){.wrap{padding:12px}.grid{grid-template-columns:1fr}.tag{display:none}.glass{padding:14px}.topbar{align-items:flex-start}}
+</style></head>
+<body><div class="wrap">
+<header><div class="logo">S</div><div><h1>YEMEN SCRIPT VIP</h1><small>Developer: SHARAF · sharaf®</small></div><span class="tag">VIP GAMING TOOLS</span></header>
+<section id="login" class="glass">
+<h2 class="section-title">دخول المشتركين VIP</h2><p class="muted">أدخل كود الاشتراك الصادر لك للوصول إلى مكتبة الإعدادات.</p>
+<label>كود الاشتراك</label><input id="code" autocomplete="off" placeholder="أدخل كودك هنا">
+<div class="row" style="margin-top:12px"><button class="primary" id="loginBtn">تسجيل الدخول</button><button id="adminOpen">دخول المطور</button></div>
+<p id="loginMsg" class="muted" role="status"></p>
+<div class="notice">هذه الواجهة تتصل بخادم للتحقق من الأكواد عند تشغيل المشروع بوضع الإنتاج. لا تضع أكواد المشتركين أو كلمة مرور الإدارة داخل ملف HTML.</div>
+</section>
+<section id="app" class="hidden">
+<div class="glass">
+<div class="topbar"><div><b>مرحباً بك في المكتبة</b><div id="subInfo" class="status"></div></div><button id="logout">تسجيل الخروج</button></div>
+<div class="notice">القيم التالية مقترحات تجريبية مولّدة وليست إعدادات رسمية أو مضمونة لكل موديل. اختبرها وعدّلها حسب أسلوبك وحجم الشاشة ومعدل الإطارات.</div>
+<div class="grid" style="margin-top:13px">
+<div><label>فئة الجهاز</label><select id="brand"></select></div>
+<div><label>موديل الجهاز (اختياري)</label><input id="model" placeholder="مثال: Galaxy A55 / iPhone 13"></div>
+<div><label>أسلوب اللعب</label><select id="style"><option value="">كل الأساليب</option><option>متوازن</option><option>سحب هيدشوت</option><option>تحكم دقيق</option><option>ثبات السكوب</option><option>حساسية سريعة</option></select></div>
+<div><label>بحث برقم أو اسم الإعداد</label><input id="search" placeholder="مثال: 120 أو هيدشوت"></div>
+</div>
+<div class="row" style="margin-top:12px"><button class="primary" id="filterBtn">عرض الإعدادات</button><button id="savedBtn">إعداداتي المحفوظة</button></div>
+</div>
+<div class="topbar" style="margin-top:18px"><h2 class="section-title">مكتبة الحساسية <span class="pill" id="count"></span></h2><button id="adminFromApp">الإدارة</button></div>
+<div id="cards" class="cards"></div><p id="empty" class="muted hidden">لا توجد نتائج مطابقة.</p>
+</section>
+<section id="admin" class="hidden glass">
+<div class="topbar"><h2 class="section-title">لوحة المطور SHARAF</h2><button id="adminClose">إغلاق</button></div>
+<div id="adminLogin">
+<label>كلمة مرور المطور</label><input id="adminPass" type="password" placeholder="كلمة المرور">
+<button class="primary" id="adminLoginBtn" style="margin-top:10px;width:100%">دخول لوحة الإدارة</button><p id="adminMsg" class="muted"></p>
+</div>
+<div id="adminPanel" class="hidden">
+<div class="grid">
+<div><label>اسم المشترك</label><input id="newName" placeholder="اسم أو لقب المشترك"></div>
+<div><label>مدة الاشتراك بالأيام</label><input id="days" type="number" min="1" max="3650" value="30"></div>
+</div><button class="primary" id="createCode" style="margin-top:12px">إنشاء كود اشتراك عشوائي</button><p id="created" class="status"></p>
+<label>بحث عن مشترك أو كود</label><input id="adminSearch" placeholder="اكتب الاسم أو الكود">
+<div id="subs" class="cards"></div>
+<div class="notice" style="margin-top:14px">صلاحيات الإدارة والتحقق الفعلي تتم على الخادم. لا تعتبر إخفاء هذه اللوحة داخل المتصفح حماية أمنية.</div>
+</div></section>
+</div>
+<div id="editModal" class="modal hidden"><div class="glass"><div class="topbar"><h3 id="editTitle">تعديل الإعداد</h3><button id="closeEdit">✕</button></div><div id="editFields" class="grid"></div><div class="row" style="margin-top:14px"><button class="primary" id="saveEdit">حفظ التعديل</button><button id="resetEdit">استعادة الأصل</button></div></div></div>
+<footer>YEMEN SCRIPT VIP · Developer SHARAF · أداة مساعدة مستقلة غير تابعة لشركة Garena.</footer>
+<script>
+const BRANDS=["Apple iPhone","Samsung","Xiaomi","Redmi","POCO","OPPO","Realme","OnePlus","vivo","iQOO","Huawei","Honor","Infinix","Android أخرى"];
+const STYLES=["متوازن","سحب هيدشوت","تحكم دقيق","ثبات السكوب","حساسية سريعة"];
+const FIELDS=["الحساسية العامة","النقطة الحمراء","سكوب 2x","سكوب 4x","سكوب القناص","النظر الحر"];
+const $=id=>document.getElementById(id); let token=localStorage.getItem("ys_token")||"", current=[], editing=null, savedOnly=false;
+BRANDS.forEach((b,i)=>$("brand").add(new Option(b,i)));
+function makeSettings(brandIndex){let out=[];for(let i=1;i<=210;i++){let style=STYLES[(i-1)%5], seed=(i*17+brandIndex*31)%37;let vals=[Math.min(200,125+seed+(i%9)*3),Math.min(200,115+(seed*2)%62),Math.min(200,105+(seed*3)%72),Math.min(200,90+(seed*5)%86),Math.min(200,55+(seed*7)%100),Math.min(200,130+(seed*4)%66)];out.push({id:`${brandIndex+1}-${i}`,name:`${style} #${String(i).padStart(3,"0")}`,style,values:vals,original:[...vals]});}return out}
+function allForBrand(){return makeSettings(+$("brand").value)}
+function localKey(){return "ys_custom_"+$("brand").value}
+function getCustom(){try{return JSON.parse(localStorage.getItem(localKey())||"{}")}catch{return {}}}
+function applyCustom(list){let c=getCustom();list.forEach(x=>{if(c[x.id])x.values=c[x.id]});return list}
+function render(){let list=applyCustom(allForBrand());let q=$("search").value.trim().toLowerCase(), st=$("style").value;list=list.filter(x=>(!st||x.style===st)&&(!q||String(x.id).includes(q)||x.name.toLowerCase().includes(q)));if(savedOnly){let s=JSON.parse(localStorage.getItem("ys_saved")||"[]");list=list.filter(x=>s.includes(x.id))}
+current=list;$("count").textContent=`${list.length} نتيجة · 210 إعدادات لهذه الفئة`;$("cards").innerHTML="";$("empty").classList.toggle("hidden",!!list.length);
+list.forEach(x=>{let d=document.createElement("article");d.className="card";d.innerHTML=`<h3>${x.name}</h3><div class="pill">${x.style} · ${x.id}</div><div class="values">${x.values.map((v,i)=>`<span>${FIELDS[i]}<b>${v}</b></span>`).join("")}</div><div class="actions"><button class="primary" data-edit="${x.id}">تعديل</button><button data-save="${x.id}">☆ حفظ</button></div>`;$("cards").append(d)});}
+$("cards").addEventListener("click",e=>{let id=e.target.dataset.edit||e.target.dataset.save;if(!id)return;let x=allForBrand().find(a=>a.id===id);if(e.target.dataset.save){let s=JSON.parse(localStorage.getItem("ys_saved")||"[]");if(!s.includes(id))s.push(id);localStorage.setItem("ys_saved",JSON.stringify(s));e.target.textContent="✓ محفوظ";return}editing=x;$("editTitle").textContent=x.name;$("editFields").innerHTML=FIELDS.map((f,i)=>`<div><label>${f}</label><input type="number" min="0" max="200" id="v${i}" value="${(getCustom()[id]||x.values)[i]}"></div>`).join("");$("editModal").classList.remove("hidden")});
+$("closeEdit").onclick=()=>$("editModal").classList.add("hidden");
+$("saveEdit").onclick=()=>{let c=getCustom();c[editing.id]=FIELDS.map((_,i)=>Math.max(0,Math.min(200,+$("v"+i).value||0)));localStorage.setItem(localKey(),JSON.stringify(c));$("editModal").classList.add("hidden");render()};
+$("resetEdit").onclick=()=>{let c=getCustom();delete c[editing.id];localStorage.setItem(localKey(),JSON.stringify(c));$("editModal").classList.add("hidden");render()};
+$("filterBtn").onclick=()=>{savedOnly=false;render()};$("brand").onchange=render;$("style").onchange=render;$("search").oninput=render;$("savedBtn").onclick=()=>{savedOnly=!savedOnly;render()};
+async function api(path,opts={}){let r=await fetch("/api"+path,{...opts,headers:{"Content-Type":"application/json",...(token?{Authorization:"Bearer "+token}:{}),...(opts.headers||{})}});let j=await r.json().catch(()=>({error:"استجابة غير مفهومة"}));if(!r.ok)throw Error(j.error||"حدث خطأ");return j}
+function showApp(info){$("login").classList.add("hidden");$("admin").classList.add("hidden");$("app").classList.remove("hidden");$("subInfo").textContent=info||"تم التحقق من الاشتراك";render()}
+$("loginBtn").onclick=async()=>{try{let x=await api("/login",{method:"POST",body:JSON.stringify({code:$("code").value.trim()})});token=x.token;localStorage.setItem("ys_token",token);showApp("ينتهي الاشتراك: "+new Date(x.expiresAt).toLocaleDateString("ar"));}catch(e){$("loginMsg").textContent=e.message}};
+$("logout").onclick=()=>{token="";localStorage.removeItem("ys_token");$("app").classList.add("hidden");$("login").classList.remove("hidden")};
+$("adminOpen").onclick=()=>$("admin").classList.remove("hidden");$("adminFromApp").onclick=()=>$("admin").classList.remove("hidden");$("adminClose").onclick=()=>$("admin").classList.add("hidden");
+let adminToken="";
+async function adminApi(path,opts={}){return api(path,{...opts,headers:{...(opts.headers||{}),"X-Admin-Token":adminToken}})}
+$("adminLoginBtn").onclick=async()=>{try{let x=await api("/admin/login",{method:"POST",body:JSON.stringify({password:$("adminPass").value})});adminToken=x.token;$("adminLogin").classList.add("hidden");$("adminPanel").classList.remove("hidden");loadSubs()}catch(e){$("adminMsg").textContent=e.message}};
+$("createCode").onclick=async()=>{try{let x=await adminApi("/admin/subscriptions",{method:"POST",body:JSON.stringify({name:$("newName").value||"مشترك",days:+$("days").value})});$("created").textContent="الكود الجديد: "+x.code+" — انسخه وأرسله للمشترك، لن يظهر مرة أخرى.";loadSubs()}catch(e){$("created").textContent=e.message}};
+async function loadSubs(){try{let x=await adminApi("/admin/subscriptions");window.subscriptions=x.subscriptions;drawSubs()}catch(e){$("subs").textContent=e.message}}
+function drawSubs(){let q=$("adminSearch").value.toLowerCase();$("subs").innerHTML="";(window.subscriptions||[]).filter(s=>(s.name+s.code).toLowerCase().includes(q)).forEach(s=>{let d=document.createElement("div");d.className="card";d.innerHTML=`<h3>${s.name}</h3><div class="muted">${s.code}</div><p class="pill">${s.status} · ينتهي ${new Date(s.expires_at).toLocaleString("ar")}</p><button class="danger" data-disable="${s.id}">${s.status==="active"?"إيقاف الكود":"إلغاء/إيقاف"}</button>`;$("subs").append(d)})}
+$("adminSearch").oninput=drawSubs;$("subs").onclick=async e=>{let id=e.target.dataset.disable;if(!id)return;try{await adminApi("/admin/subscriptions/"+id+"/disable",{method:"POST"});loadSubs()}catch(err){alert(err.message)}};
+(async()=>{if(token){try{let x=await api("/me");showApp("ينتهي الاشتراك: "+new Date(x.expiresAt).toLocaleDateString("ar"))}catch{$("logout").click()}}})();
+</script></body></html>
